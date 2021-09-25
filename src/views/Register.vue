@@ -70,6 +70,7 @@
             <div class="register__birth-item register__birth-item--month">
               <span>Месяц</span>
               <select name="" id="">
+                <option value="" disabled selected>Месяц</option>
                 <option value="1">Январь</option>
                 <option value="2">Февраль</option>
                 <option value="3">Март</option>
@@ -98,27 +99,29 @@
         <div class="register__sex">
           <span class="register__sex-title">Укажите свой пол</span>
           <div class="register__sex-wrapper">
-            <span><input name="dzen" type="radio" value="male" />Мужчина</span>
-            <span
-              ><input name="dzen" type="radio" value="female" />Женщина</span
+            <label
+              ><input name="dzen" type="radio" value="male" />Мужчина</label
             >
-            <span
+            <label
+              ><input name="dzen" type="radio" value="female" />Женщина</label
+            >
+            <label
               ><input name="dzen" type="radio" value="other" />Другой
-              вариант</span
+              вариант</label
             >
           </div>
         </div>
-        <div>
-          <p>
+        <div class="register__adv">
+          <label>
             <input type="checkbox" />Я не хочу получать рекламные сообщения от
             Spotify.
-          </p>
-          <p>
+          </label>
+          <label>
             <input type="checkbox" />Я разрешаю сообщить мои регистрационные
             данные партнерам Spotify в целях рекламы.
-          </p>
+          </label>
         </div>
-        <div>
+        <div class="register__descr">
           <p>
             Нажимая «Зарегистрироваться», вы принимаете
             <a href="#">Условия использования Spotify</a>.
@@ -131,9 +134,13 @@
             <a href="#">Политику конфиденциальности</a> .
           </p>
         </div>
-        <button type="submit">Зарегистрироваться</button>
+        <button class="register__button" type="submit">
+          Зарегистрироваться
+        </button>
       </form>
-      <p>Уже есть аккаунт? <router-link to="/login">Войти</router-link></p>
+      <p class="register__link">
+        Уже есть аккаунт? <router-link to="/login">Войти</router-link>.
+      </p>
     </div>
   </div>
 </template>
@@ -152,7 +159,12 @@
 .register {
   padding-top: 40px;
   width: 100%;
+  padding-bottom: 100px;
   &__wrapper {
+    @media screen and (max-width: 500px) {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
     margin: 0 auto;
     max-width: 450px;
     display: flex;
@@ -209,6 +221,10 @@
   }
   &__input-wrapper {
     width: 100%;
+    @media screen and (max-width: 500px) {
+      width: 80%;
+      margin: 0 auto;
+    }
     &:not(:last-child) {
       margin-bottom: 30px;
     }
@@ -260,12 +276,21 @@
   }
   &__birth-item--day input {
     max-width: 90px;
+    @media screen and (max-width: 500px) {
+      max-width: 60px;
+    }
   }
   &__birth-item--year input {
     max-width: 110px;
+    @media screen and (max-width: 500px) {
+      max-width: 80px;
+    }
   }
   &__birth-item--month select {
     width: 205px;
+    @media screen and (max-width: 500px) {
+      width: auto;
+    }
   }
   &__sex {
     margin-top: 20px;
@@ -280,14 +305,68 @@
     display: flex;
     justify-content: space-between;
     max-width: 80%;
+    flex-wrap: wrap;
   }
   &__sex-wrapper input {
     margin-right: 7px;
   }
-  &__sex-wrapper span {
+  &__sex-wrapper label {
     display: flex;
     align-items: center;
     font-size: 14px;
+    white-space: nowrap;
+    padding: 5px;
+  }
+  &__adv {
+    margin-top: 35px;
+  }
+  &__adv label {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    &:first-child {
+      margin-bottom: 30px;
+    }
+  }
+  &__adv input {
+    margin-right: 10px;
+  }
+  &__descr {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 12px;
+  }
+  &__descr a {
+    color: #39c269;
+  }
+  &__button {
+    background-color: #1ed760;
+    color: #000;
+    border: none;
+    width: 260px;
+    border-radius: 500px;
+    height: 50px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.02);
+    }
+    &:active,
+    &:focus {
+      transition: box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      outline: none;
+      border: 4px solid #fff;
+      box-shadow: 0px 0px 0px 2px #000;
+    }
+  }
+  &__link {
+    margin-top: 30px;
+  }
+  &__link a {
+    color: #1ed760;
   }
 }
 </style>
