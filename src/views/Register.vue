@@ -134,9 +134,13 @@
             <a href="#">Политику конфиденциальности</a> .
           </p>
         </div>
-        <button class="register__button" type="submit">
+        <router-link
+          :to="{ name: 'home' }"
+          class="register__button"
+          type="submit"
+        >
           Зарегистрироваться
-        </button>
+        </router-link>
       </form>
       <p class="register__link">
         Уже есть аккаунт?
@@ -347,11 +351,14 @@
     width: 260px;
     border-radius: 500px;
     height: 50px;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 0 auto;
     margin-top: 30px;
     font-weight: bold;
     cursor: pointer;
+    text-decoration: none;
     &:hover {
       transform: scale(1.02);
     }

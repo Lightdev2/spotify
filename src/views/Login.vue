@@ -32,13 +32,15 @@
           Пароль
           <input type="text" placeholder="Пароль" />
         </label>
-        <a href="#">Забыли пароль?</a>
+        <a class="login__form-link" href="#">Забыли пароль?</a>
         <div class="login__form-footer">
           <label>
             <input type="checkbox" name="" id="" />
             Запомнить меня
           </label>
-          <button>Войти</button>
+          <router-link class="login__enter" :to="{ name: 'home' }"
+            >Войти</router-link
+          >
         </div>
       </form>
       <h3 class="login_noacc">Нет аккаунта?</h3>
@@ -170,7 +172,7 @@
     height: 40px;
     padding-left: 10px;
   }
-  &__form a {
+  &__form-link {
     color: #6d7072;
     font-size: 14px;
     display: block;
@@ -197,10 +199,14 @@
     margin: 0;
     margin-right: 5px;
   }
-  &__form-footer button {
+  &__enter {
     border: none;
     height: 50px;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
     background-color: #15883e;
     width: 50%;
     border-radius: 500px;
