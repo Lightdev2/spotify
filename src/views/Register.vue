@@ -139,7 +139,8 @@
         </button>
       </form>
       <p class="register__link">
-        Уже есть аккаунт? <router-link to="/login">Войти</router-link>.
+        Уже есть аккаунт?
+        <router-link :to="{ name: 'login' }">Войти</router-link>.
       </p>
     </div>
   </div>
