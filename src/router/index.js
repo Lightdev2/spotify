@@ -7,7 +7,7 @@ const routes = [
   {
     path: "/",
     name: "home",
-    component: Home,
+    component: Register,
   },
   {
     path: "/register",
@@ -18,6 +18,11 @@ const routes = [
     path: "/login",
     name: "login",
     component: Login,
+  },
+  {
+    path: "/player",
+    name: "player",
+    component: Home,
   },
 ];
 

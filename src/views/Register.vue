@@ -135,7 +135,7 @@
           </p>
         </div>
         <router-link
-          :to="{ name: 'home' }"
+          :to="{ name: 'player' }"
           class="register__button"
           type="submit"
         >

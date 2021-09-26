@@ -38,7 +38,7 @@
             <input type="checkbox" name="" id="" />
             Запомнить меня
           </label>
-          <router-link class="login__enter" :to="{ name: 'home' }"
+          <router-link class="login__enter" :to="{ name: 'player' }"
             >Войти</router-link
           >
         </div>
